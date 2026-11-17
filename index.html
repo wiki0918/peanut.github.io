@@ -1,0 +1,586 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>土豆師生乳卷｜移動純手工法式甜點店</title>
+
+<style>
+/* ===== 基本設定 ===== */
+:root {
+    --cream: #F8F5EF;
+    --white: #FFFEFA;
+    --brown: #755640;
+    --dark: #40352C;
+    --caramel: #B58B68;
+    --light: #EAE1D5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.8;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ===== 導覽列 ===== */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--dark);
+}
+
+.logo span {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--brown);
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+nav a:hover {
+    color: var(--caramel);
+}
+
+/* ===== 首頁主視覺 ===== */
+.hero {
+    min-height: 700px;
+    height: 95vh;
+    max-height: 900px;
+    display: flex;
+    align-items: center;
+    padding: 100px 10%;
+    background:
+        linear-gradient(90deg,
+        rgba(248,245,239,0.95) 0%,
+        rgba(248,245,239,0.75) 45%,
+        rgba(248,245,239,0.05) 100%),
+        url("https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+}
+
+.hero-content {
+    max-width: 550px;
+}
+
+.eyebrow {
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--brown);
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.35;
+    letter-spacing: 5px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: var(--brown);
+}
+
+.hero p {
+    font-size: 16px;
+    color: #76685C;
+    letter-spacing: 2px;
+    margin-bottom: 38px;
+}
+
+.main-btn {
+    display: inline-block;
+    padding: 13px 36px;
+    border: 1px solid var(--brown);
+    color: var(--brown);
+    letter-spacing: 2px;
+    transition: .3s;
+}
+
+.main-btn:hover {
+    background: var(--brown);
+    color: white;
+}
+
+/* ===== 通用區塊 ===== */
+section {
+    padding: 100px 10%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-title span {
+    font-size: 12px;
+    color: var(--caramel);
+    letter-spacing: 4px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    margin-top: 10px;
+}
+
+/* ===== 品牌介紹 ===== */
+.about {
+    background: var(--white);
+}
+
+.about-content {
+    max-width: 760px;
+    margin: auto;
+    text-align: center;
+}
+
+.about-content p {
+    color: #786D63;
+    font-size: 16px;
+    line-height: 2.3;
+    letter-spacing: 1px;
+}
+
+.about-content .highlight {
+    font-size: 23px;
+    color: var(--brown);
+    margin-bottom: 25px;
+}
+
+/* ===== 甜點商品 ===== */
+.products {
+    background: var(--cream);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.product-card {
+    background: var(--white);
+    overflow: hidden;
+}
+
+.product-card img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    transition: transform .5s;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 25px;
+    text-align: center;
+}
+
+.product-info h3 {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.product-info p {
+    font-size: 14px;
+    color: #897D72;
+}
+
+/* ===== 手作理念 ===== */
+.handmade {
+    background: var(--brown);
+    color: var(--white);
+    text-align: center;
+}
+
+.handmade .section-title span {
+    color: #E6C8A8;
+}
+
+.handmade-content {
+    max-width: 750px;
+    margin: auto;
+}
+
+.handmade-content h2 {
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.handmade-content p {
+    color: #E9DED3;
+    line-height: 2.3;
+}
+
+/* ===== 城市巡迴 ===== */
+.travel {
+    background: var(--white);
+}
+
+.travel-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.travel-content img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.travel-text h2 {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.travel-text p {
+    color: #82766B;
+    line-height: 2.2;
+    margin-bottom: 25px;
+}
+
+.travel-tag {
+    display: inline-block;
+    border: 1px solid var(--light);
+    padding: 8px 18px;
+    margin: 5px;
+    font-size: 13px;
+    color: var(--brown);
+}
+
+/* ===== 聯絡資訊 ===== */
+.contact {
+    text-align: center;
+    background: var(--cream);
+}
+
+.contact p {
+    color: #82766B;
+    margin: 15px 0 30px;
+}
+
+footer {
+    padding: 30px 15px;
+    background: var(--dark);
+    color: #D9CBBE;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* ===== RWD 手機版 ===== */
+@media (max-width: 768px) {
+    header {
+        padding: 18px 6%;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    nav {
+        gap: 12px;
+        font-size: 11px;
+    }
+
+    .hero {
+        min-height: 650px;
+        height: 85vh;
+        padding: 120px 7%;
+        background-position: 60% center;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    section {
+        padding: 75px 7%;
+    }
+
+    .section-title h2 {
+        font-size: 26px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .product-card img {
+        height: 280px;
+    }
+
+    .travel-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .travel-content img {
+        height: 280px;
+    }
+
+    .travel-text h2 {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 420px) {
+    nav {
+        gap: 9px;
+        font-size: 10px;
+    }
+
+    .logo span {
+        letter-spacing: 1px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 導覽列 -->
+<header>
+    <div class="logo">
+        土豆師生乳卷
+        <span>FRENCH DESSERT ON WHEELS</span>
+    </div>
+
+    <nav>
+        <a href="#about">品牌故事</a>
+        <a href="#products">甜點選單</a>
+        <a href="#travel">城市巡迴</a>
+        <a href="#contact">聯絡我們</a>
+    </nav>
+</header>
+
+<!-- 首頁 -->
+<div class="hero">
+    <div class="hero-content">
+        <div class="eyebrow">HANDMADE FRENCH DESSERT</div>
+
+        <h1>
+            一口甜點<br>
+            <span>一座城市</span>
+        </h1>
+
+        <p>
+            移動純手工法式甜點店<br>
+            駕駛餐車，帶著甜點流連於城市之間。
+        </p>
+
+        <a href="#products" class="main-btn">探索甜點 →</a>
+    </div>
+</div>
+
+<!-- 品牌故事 -->
+<section class="about" id="about">
+    <div class="section-title">
+        <span>OUR STORY</span>
+        <h2>關於土豆師生乳卷</h2>
+    </div>
+
+    <div class="about-content">
+        <div class="highlight">
+            甜點不一定要在店裡，<br>也可以在旅途中遇見。
+        </div>
+
+        <p>
+            土豆師生乳卷，是一間沒有固定地址的法式甜點店。
+            <br>
+            我們將對甜點的熱愛，裝進一台移動餐車裡。
+            <br>
+            每一份甜點都堅持純手工製作，
+            <br>
+            帶著細膩的風味，穿梭在不同城市與街道。
+            <br><br>
+            今天在這座城市，明天也許就在另一個轉角。
+            <br>
+            希望每一次相遇，都能成為生活裡的小小幸福。
+        </p>
+    </div>
+</section>
+
+<!-- 招牌甜點 -->
+<section class="products" id="products">
+    <div class="section-title">
+        <span>OUR DESSERTS</span>
+        <h2>手作甜點選集</h2>
+    </div>
+
+    <div class="product-grid">
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?auto=format&fit=crop&w=900&q=80"
+                 alt="法式奶油蛋糕">
+            <div class="product-info">
+                <h3>經典生乳卷</h3>
+                <p>柔軟蛋糕體，搭配細緻滑順的生乳奶餡。</p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80"
+                 alt="手作法式蛋糕">
+            <div class="product-info">
+                <h3>每日限定甜點</h3>
+                <p>隨著季節變化，製作當日限定的美味。</p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=900&q=80"
+                 alt="法式甜點">
+            <div class="product-info">
+                <h3>季節水果甜點</h3>
+                <p>嚴選當季水果，呈現自然純粹的甜美。</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- 手作理念 -->
+<section class="handmade">
+    <div class="handmade-content">
+        <div class="section-title">
+            <span>MADE WITH LOVE</span>
+        </div>
+
+        <h2>慢慢做，才能做出好味道。</h2>
+
+        <p>
+            不追求大量生產，也不急著趕路。
+            <br>
+            從食材挑選、蛋糕烘焙，到每一份甜點的包裝，
+            <br>
+            我們相信，手作的溫度藏在每一個細節裡。
+            <br>
+            讓簡單的食材，變成值得期待的美好滋味。
+        </p>
+    </div>
+</section>
+
+<!-- 城市巡迴 -->
+<section class="travel" id="travel">
+    <div class="section-title">
+        <span>FOLLOW OUR JOURNEY</span>
+        <h2>下一站，在哪裡遇見你？</h2>
+    </div>
+
+    <div class="travel-content">
+        <img
+            src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1200&q=85"
+            alt="旅行中的移動餐車">
+
+        <div class="travel-text">
+            <h2>一台餐車，無限種可能。</h2>
+
+            <p>
+                我們沒有固定的店面，
+                因為整座城市都是我們的甜點店。
+                <br><br>
+                跟著我們的腳步，探索不同城市的街道、
+                市集與風景。
+                <br><br>
+                也許某一天，在你熟悉的街角，
+                就會遇見這台載著甜點而來的小餐車。
+            </p>
+
+            <span class="travel-tag">台北</span>
+            <span class="travel-tag">新竹</span>
+            <span class="travel-tag">台中</span>
+            <span class="travel-tag">台南</span>
+            <span class="travel-tag">高雄</span>
+        </div>
+    </div>
+</section>
+
+<!-- 聯絡我們 -->
+<section class="contact" id="contact">
+    <div class="section-title">
+        <span>COME SAY HELLO</span>
+        <h2>在城市的某個角落見面吧。</h2>
+    </div>
+
+    <p>
+        想知道餐車今天在哪裡？<br>
+        歡迎追蹤我們的最新動態。
+    </p>
+
+    <a href="https://www.instagram.com/" target="_blank"
+       class="main-btn">追蹤 Instagram →</a>
+</section>
+
+<!-- 頁尾 -->
+<footer>
+    © 2026 土豆師生乳卷
+    <br>
+    HANDMADE WITH LOVE · DESSERT ON WHEELS
+</footer>
+
+</body>
+</html>
